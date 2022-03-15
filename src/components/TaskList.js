@@ -1,9 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
+import Task from "./Task";
+import { interfaces } from "mocha";
 
-function TaskList() {
+function TaskList({tasks, categories, deleteTask}) {
+
+  
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      <ul>
+        {tasks.map((task) => (
+          <Task 
+          key={task.text} 
+          text={task.text} 
+          category={task.category} 
+          deleteTask={deleteTask}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
